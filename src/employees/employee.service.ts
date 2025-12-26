@@ -22,4 +22,11 @@ export class EmployeeService {
             where: { id },
         });
     }
+
+    //Delete employee by ID
+    async deleteEmployee(id: string): Promise<Employee> {
+        return this.prismaService.employee.delete({
+            where: { id },
+        });
+    }
 }
