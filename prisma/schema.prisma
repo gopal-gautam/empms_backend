@@ -1,0 +1,75 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+
+model Employee {
+  id                     String   @id @default(uuid())
+
+  // ─── Personal Information ─────────────────────────────
+  firstName              String
+  middleName             String?
+  lastName               String
+  dateOfBirth            DateTime
+  gender                 String
+  maritalStatus          String
+  nationality            String
+
+  // ─── Contact Information ─────────────────────────────
+  email                  String   @unique
+  phone                  String
+  alternatePhone         String?
+  address                String
+  city                   String
+  state                  String
+  zipCode                String
+  country                String
+
+  // ─── Employment Details ──────────────────────────────
+  employeeId             String   @unique
+  department             String
+  position               String
+  jobTitle               String
+  employmentType         String
+  dateOfJoining          DateTime
+  workLocation           String
+  reportingManager       String?
+
+  // ─── Compensation ────────────────────────────────────
+  bankName               String
+  accountNumber          String
+  ifscCode               String
+
+  // ─── Emergency Contact ───────────────────────────────
+  emergencyContactName       String
+  emergencyContactRelation   String
+  emergencyContactPhone      String
+  emergencyContactAddress    String
+
+  // ─── Documents ───────────────────────────────────────
+  citizenShipNumber      String?
+  panNumber              String?
+  passportNumber         String?
+  drivingLicense         String?
+
+  // ─── Additional Info ─────────────────────────────────
+  bloodGroup             String?
+  allergies              String?
+  notes                  String?
+
+  // ─── Metadata ────────────────────────────────────────
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+}
