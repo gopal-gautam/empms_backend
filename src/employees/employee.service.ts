@@ -48,4 +48,15 @@ export class EmployeeService {
             where: { id },
         });
     }
+
+    async getAllEmployeesColumns(columns: (keyof Employee)[]): Promise<Record<string, any>[]> {
+        // If no columns are provided, return all employees (safe fallback)
+        if (!columns || columns.length === 0) {
+            return this.prismaService.employee.findMany();
+        }
+      
+        // Build select object dynamically
+        const select = columns.reduce((acc, col) => ({ ...acc, [col]: true }), {}) as Prisma.EmployeeSelect;
+        return this.prismaService.employee.findMany({ select }) as Promise<Record<string, any>[]>;
+    }
 }

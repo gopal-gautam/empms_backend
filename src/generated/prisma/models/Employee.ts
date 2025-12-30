@@ -462,6 +462,7 @@ export type EmployeeWhereInput = {
   notes?: Prisma.StringNullableFilter<"Employee"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Employee"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Employee"> | Date | string
+  clockInOuts?: Prisma.ClockInOutListRelationFilter
 }
 
 export type EmployeeOrderByWithRelationInput = {
@@ -505,6 +506,7 @@ export type EmployeeOrderByWithRelationInput = {
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  clockInOuts?: Prisma.ClockInOutOrderByRelationAggregateInput
 }
 
 export type EmployeeWhereUniqueInput = Prisma.AtLeast<{
@@ -551,6 +553,7 @@ export type EmployeeWhereUniqueInput = Prisma.AtLeast<{
   notes?: Prisma.StringNullableFilter<"Employee"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Employee"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Employee"> | Date | string
+  clockInOuts?: Prisma.ClockInOutListRelationFilter
 }, "id" | "email" | "employeeId">
 
 export type EmployeeOrderByWithAggregationInput = {
@@ -686,6 +689,7 @@ export type EmployeeCreateInput = {
   notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  clockInOuts?: Prisma.ClockInOutCreateNestedManyWithoutEmployeeInput
 }
 
 export type EmployeeUncheckedCreateInput = {
@@ -729,6 +733,7 @@ export type EmployeeUncheckedCreateInput = {
   notes?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  clockInOuts?: Prisma.ClockInOutUncheckedCreateNestedManyWithoutEmployeeInput
 }
 
 export type EmployeeUpdateInput = {
@@ -772,6 +777,7 @@ export type EmployeeUpdateInput = {
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  clockInOuts?: Prisma.ClockInOutUpdateManyWithoutEmployeeNestedInput
 }
 
 export type EmployeeUncheckedUpdateInput = {
@@ -815,6 +821,7 @@ export type EmployeeUncheckedUpdateInput = {
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  clockInOuts?: Prisma.ClockInOutUncheckedUpdateManyWithoutEmployeeNestedInput
 }
 
 export type EmployeeCreateManyInput = {
@@ -1075,6 +1082,11 @@ export type EmployeeMinOrderByAggregateInput = {
   updatedAt?: Prisma.SortOrder
 }
 
+export type EmployeeScalarRelationFilter = {
+  is?: Prisma.EmployeeWhereInput
+  isNot?: Prisma.EmployeeWhereInput
+}
+
 export type StringFieldUpdateOperationsInput = {
   set?: string
 }
@@ -1087,6 +1099,237 @@ export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }
 
+export type EmployeeCreateNestedOneWithoutClockInOutsInput = {
+  create?: Prisma.XOR<Prisma.EmployeeCreateWithoutClockInOutsInput, Prisma.EmployeeUncheckedCreateWithoutClockInOutsInput>
+  connectOrCreate?: Prisma.EmployeeCreateOrConnectWithoutClockInOutsInput
+  connect?: Prisma.EmployeeWhereUniqueInput
+}
+
+export type EmployeeUpdateOneRequiredWithoutClockInOutsNestedInput = {
+  create?: Prisma.XOR<Prisma.EmployeeCreateWithoutClockInOutsInput, Prisma.EmployeeUncheckedCreateWithoutClockInOutsInput>
+  connectOrCreate?: Prisma.EmployeeCreateOrConnectWithoutClockInOutsInput
+  upsert?: Prisma.EmployeeUpsertWithoutClockInOutsInput
+  connect?: Prisma.EmployeeWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.EmployeeUpdateToOneWithWhereWithoutClockInOutsInput, Prisma.EmployeeUpdateWithoutClockInOutsInput>, Prisma.EmployeeUncheckedUpdateWithoutClockInOutsInput>
+}
+
+export type EmployeeCreateWithoutClockInOutsInput = {
+  id?: string
+  firstName: string
+  middleName?: string | null
+  lastName: string
+  dateOfBirth: Date | string
+  gender: string
+  maritalStatus: string
+  nationality: string
+  email: string
+  phone: string
+  alternatePhone?: string | null
+  address: string
+  city: string
+  state: string
+  zipCode: string
+  country: string
+  employeeId: string
+  department: string
+  position: string
+  jobTitle: string
+  employmentType: string
+  dateOfJoining: Date | string
+  workLocation: string
+  reportingManager?: string | null
+  bankName: string
+  accountNumber: string
+  ifscCode: string
+  emergencyContactName: string
+  emergencyContactRelation: string
+  emergencyContactPhone: string
+  emergencyContactAddress: string
+  citizenShipNumber?: string | null
+  panNumber?: string | null
+  passportNumber?: string | null
+  drivingLicense?: string | null
+  bloodGroup?: string | null
+  allergies?: string | null
+  notes?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type EmployeeUncheckedCreateWithoutClockInOutsInput = {
+  id?: string
+  firstName: string
+  middleName?: string | null
+  lastName: string
+  dateOfBirth: Date | string
+  gender: string
+  maritalStatus: string
+  nationality: string
+  email: string
+  phone: string
+  alternatePhone?: string | null
+  address: string
+  city: string
+  state: string
+  zipCode: string
+  country: string
+  employeeId: string
+  department: string
+  position: string
+  jobTitle: string
+  employmentType: string
+  dateOfJoining: Date | string
+  workLocation: string
+  reportingManager?: string | null
+  bankName: string
+  accountNumber: string
+  ifscCode: string
+  emergencyContactName: string
+  emergencyContactRelation: string
+  emergencyContactPhone: string
+  emergencyContactAddress: string
+  citizenShipNumber?: string | null
+  panNumber?: string | null
+  passportNumber?: string | null
+  drivingLicense?: string | null
+  bloodGroup?: string | null
+  allergies?: string | null
+  notes?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type EmployeeCreateOrConnectWithoutClockInOutsInput = {
+  where: Prisma.EmployeeWhereUniqueInput
+  create: Prisma.XOR<Prisma.EmployeeCreateWithoutClockInOutsInput, Prisma.EmployeeUncheckedCreateWithoutClockInOutsInput>
+}
+
+export type EmployeeUpsertWithoutClockInOutsInput = {
+  update: Prisma.XOR<Prisma.EmployeeUpdateWithoutClockInOutsInput, Prisma.EmployeeUncheckedUpdateWithoutClockInOutsInput>
+  create: Prisma.XOR<Prisma.EmployeeCreateWithoutClockInOutsInput, Prisma.EmployeeUncheckedCreateWithoutClockInOutsInput>
+  where?: Prisma.EmployeeWhereInput
+}
+
+export type EmployeeUpdateToOneWithWhereWithoutClockInOutsInput = {
+  where?: Prisma.EmployeeWhereInput
+  data: Prisma.XOR<Prisma.EmployeeUpdateWithoutClockInOutsInput, Prisma.EmployeeUncheckedUpdateWithoutClockInOutsInput>
+}
+
+export type EmployeeUpdateWithoutClockInOutsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  middleName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  dateOfBirth?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  gender?: Prisma.StringFieldUpdateOperationsInput | string
+  maritalStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  nationality?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  alternatePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.StringFieldUpdateOperationsInput | string
+  city?: Prisma.StringFieldUpdateOperationsInput | string
+  state?: Prisma.StringFieldUpdateOperationsInput | string
+  zipCode?: Prisma.StringFieldUpdateOperationsInput | string
+  country?: Prisma.StringFieldUpdateOperationsInput | string
+  employeeId?: Prisma.StringFieldUpdateOperationsInput | string
+  department?: Prisma.StringFieldUpdateOperationsInput | string
+  position?: Prisma.StringFieldUpdateOperationsInput | string
+  jobTitle?: Prisma.StringFieldUpdateOperationsInput | string
+  employmentType?: Prisma.StringFieldUpdateOperationsInput | string
+  dateOfJoining?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  workLocation?: Prisma.StringFieldUpdateOperationsInput | string
+  reportingManager?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankName?: Prisma.StringFieldUpdateOperationsInput | string
+  accountNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  ifscCode?: Prisma.StringFieldUpdateOperationsInput | string
+  emergencyContactName?: Prisma.StringFieldUpdateOperationsInput | string
+  emergencyContactRelation?: Prisma.StringFieldUpdateOperationsInput | string
+  emergencyContactPhone?: Prisma.StringFieldUpdateOperationsInput | string
+  emergencyContactAddress?: Prisma.StringFieldUpdateOperationsInput | string
+  citizenShipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passportNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  drivingLicense?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bloodGroup?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  allergies?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type EmployeeUncheckedUpdateWithoutClockInOutsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  firstName?: Prisma.StringFieldUpdateOperationsInput | string
+  middleName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lastName?: Prisma.StringFieldUpdateOperationsInput | string
+  dateOfBirth?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  gender?: Prisma.StringFieldUpdateOperationsInput | string
+  maritalStatus?: Prisma.StringFieldUpdateOperationsInput | string
+  nationality?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  phone?: Prisma.StringFieldUpdateOperationsInput | string
+  alternatePhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.StringFieldUpdateOperationsInput | string
+  city?: Prisma.StringFieldUpdateOperationsInput | string
+  state?: Prisma.StringFieldUpdateOperationsInput | string
+  zipCode?: Prisma.StringFieldUpdateOperationsInput | string
+  country?: Prisma.StringFieldUpdateOperationsInput | string
+  employeeId?: Prisma.StringFieldUpdateOperationsInput | string
+  department?: Prisma.StringFieldUpdateOperationsInput | string
+  position?: Prisma.StringFieldUpdateOperationsInput | string
+  jobTitle?: Prisma.StringFieldUpdateOperationsInput | string
+  employmentType?: Prisma.StringFieldUpdateOperationsInput | string
+  dateOfJoining?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  workLocation?: Prisma.StringFieldUpdateOperationsInput | string
+  reportingManager?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankName?: Prisma.StringFieldUpdateOperationsInput | string
+  accountNumber?: Prisma.StringFieldUpdateOperationsInput | string
+  ifscCode?: Prisma.StringFieldUpdateOperationsInput | string
+  emergencyContactName?: Prisma.StringFieldUpdateOperationsInput | string
+  emergencyContactRelation?: Prisma.StringFieldUpdateOperationsInput | string
+  emergencyContactPhone?: Prisma.StringFieldUpdateOperationsInput | string
+  emergencyContactAddress?: Prisma.StringFieldUpdateOperationsInput | string
+  citizenShipNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  panNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  passportNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  drivingLicense?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bloodGroup?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  allergies?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+
+/**
+ * Count Type EmployeeCountOutputType
+ */
+
+export type EmployeeCountOutputType = {
+  clockInOuts: number
+}
+
+export type EmployeeCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  clockInOuts?: boolean | EmployeeCountOutputTypeCountClockInOutsArgs
+}
+
+/**
+ * EmployeeCountOutputType without action
+ */
+export type EmployeeCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EmployeeCountOutputType
+   */
+  select?: Prisma.EmployeeCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * EmployeeCountOutputType without action
+ */
+export type EmployeeCountOutputTypeCountClockInOutsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ClockInOutWhereInput
+}
 
 
 export type EmployeeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1130,6 +1373,8 @@ export type EmployeeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   notes?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  clockInOuts?: boolean | Prisma.Employee$clockInOutsArgs<ExtArgs>
+  _count?: boolean | Prisma.EmployeeCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["employee"]>
 
 export type EmployeeSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -1262,10 +1507,18 @@ export type EmployeeSelectScalar = {
 }
 
 export type EmployeeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "firstName" | "middleName" | "lastName" | "dateOfBirth" | "gender" | "maritalStatus" | "nationality" | "email" | "phone" | "alternatePhone" | "address" | "city" | "state" | "zipCode" | "country" | "employeeId" | "department" | "position" | "jobTitle" | "employmentType" | "dateOfJoining" | "workLocation" | "reportingManager" | "bankName" | "accountNumber" | "ifscCode" | "emergencyContactName" | "emergencyContactRelation" | "emergencyContactPhone" | "emergencyContactAddress" | "citizenShipNumber" | "panNumber" | "passportNumber" | "drivingLicense" | "bloodGroup" | "allergies" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["employee"]>
+export type EmployeeInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  clockInOuts?: boolean | Prisma.Employee$clockInOutsArgs<ExtArgs>
+  _count?: boolean | Prisma.EmployeeCountOutputTypeDefaultArgs<ExtArgs>
+}
+export type EmployeeIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type EmployeeIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $EmployeePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Employee"
-  objects: {}
+  objects: {
+    clockInOuts: Prisma.$ClockInOutPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     firstName: string
@@ -1701,6 +1954,7 @@ readonly fields: EmployeeFieldRefs;
  */
 export interface Prisma__EmployeeClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  clockInOuts<T extends Prisma.Employee$clockInOutsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Employee$clockInOutsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ClockInOutPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1787,6 +2041,10 @@ export type EmployeeFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.Inte
    */
   omit?: Prisma.EmployeeOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmployeeInclude<ExtArgs> | null
+  /**
    * Filter, which Employee to fetch.
    */
   where: Prisma.EmployeeWhereUniqueInput
@@ -1805,6 +2063,10 @@ export type EmployeeFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensio
    */
   omit?: Prisma.EmployeeOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmployeeInclude<ExtArgs> | null
+  /**
    * Filter, which Employee to fetch.
    */
   where: Prisma.EmployeeWhereUniqueInput
@@ -1822,6 +2084,10 @@ export type EmployeeFindFirstArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * Omit specific fields from the Employee
    */
   omit?: Prisma.EmployeeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmployeeInclude<ExtArgs> | null
   /**
    * Filter, which Employee to fetch.
    */
@@ -1871,6 +2137,10 @@ export type EmployeeFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extension
    */
   omit?: Prisma.EmployeeOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmployeeInclude<ExtArgs> | null
+  /**
    * Filter, which Employee to fetch.
    */
   where?: Prisma.EmployeeWhereInput
@@ -1919,6 +2189,10 @@ export type EmployeeFindManyArgs<ExtArgs extends runtime.Types.Extensions.Intern
    */
   omit?: Prisma.EmployeeOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmployeeInclude<ExtArgs> | null
+  /**
    * Filter, which Employees to fetch.
    */
   where?: Prisma.EmployeeWhereInput
@@ -1961,6 +2235,10 @@ export type EmployeeCreateArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Omit specific fields from the Employee
    */
   omit?: Prisma.EmployeeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmployeeInclude<ExtArgs> | null
   /**
    * The data needed to create a Employee.
    */
@@ -2009,6 +2287,10 @@ export type EmployeeUpdateArgs<ExtArgs extends runtime.Types.Extensions.Internal
    * Omit specific fields from the Employee
    */
   omit?: Prisma.EmployeeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmployeeInclude<ExtArgs> | null
   /**
    * The data needed to update a Employee.
    */
@@ -2076,6 +2358,10 @@ export type EmployeeUpsertArgs<ExtArgs extends runtime.Types.Extensions.Internal
    */
   omit?: Prisma.EmployeeOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmployeeInclude<ExtArgs> | null
+  /**
    * The filter to search for the Employee to update in case it exists.
    */
   where: Prisma.EmployeeWhereUniqueInput
@@ -2102,6 +2388,10 @@ export type EmployeeDeleteArgs<ExtArgs extends runtime.Types.Extensions.Internal
    */
   omit?: Prisma.EmployeeOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmployeeInclude<ExtArgs> | null
+  /**
    * Filter which Employee to delete.
    */
   where: Prisma.EmployeeWhereUniqueInput
@@ -2122,6 +2412,30 @@ export type EmployeeDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inte
 }
 
 /**
+ * Employee.clockInOuts
+ */
+export type Employee$clockInOutsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ClockInOut
+   */
+  select?: Prisma.ClockInOutSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ClockInOut
+   */
+  omit?: Prisma.ClockInOutOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ClockInOutInclude<ExtArgs> | null
+  where?: Prisma.ClockInOutWhereInput
+  orderBy?: Prisma.ClockInOutOrderByWithRelationInput | Prisma.ClockInOutOrderByWithRelationInput[]
+  cursor?: Prisma.ClockInOutWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ClockInOutScalarFieldEnum | Prisma.ClockInOutScalarFieldEnum[]
+}
+
+/**
  * Employee without action
  */
 export type EmployeeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2133,4 +2447,8 @@ export type EmployeeDefaultArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Omit specific fields from the Employee
    */
   omit?: Prisma.EmployeeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmployeeInclude<ExtArgs> | null
 }

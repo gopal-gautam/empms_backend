@@ -42,3 +42,8 @@ export { Prisma }
  * 
  */
 export type Employee = Prisma.EmployeeModel
+/**
+ * Model ClockInOut
+ * 
+ */
+export type ClockInOut = Prisma.ClockInOutModel

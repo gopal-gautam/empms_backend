@@ -51,7 +51,8 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  Employee: 'Employee'
+  Employee: 'Employee',
+  ClockInOut: 'ClockInOut'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -114,6 +115,20 @@ export const EmployeeScalarFieldEnum = {
 } as const
 
 export type EmployeeScalarFieldEnum = (typeof EmployeeScalarFieldEnum)[keyof typeof EmployeeScalarFieldEnum]
+
+
+export const ClockInOutScalarFieldEnum = {
+  id: 'id',
+  employeeId: 'employeeId',
+  date: 'date',
+  clockInTime: 'clockInTime',
+  clockOutTime: 'clockOutTime',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClockInOutScalarFieldEnum = (typeof ClockInOutScalarFieldEnum)[keyof typeof ClockInOutScalarFieldEnum]
 
 
 export const SortOrder = {

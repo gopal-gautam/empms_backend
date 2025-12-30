@@ -69,7 +69,28 @@ model Employee {
   allergies              String?
   notes                  String?
 
+  // Clock in/out entries for this employee
+  clockInOuts            ClockInOut[]
+
   // ─── Metadata ────────────────────────────────────────
   createdAt              DateTime @default(now())
   updatedAt              DateTime @updatedAt
+}
+
+model ClockInOut {
+  id           String   @id @default(uuid())
+  employeeId   String
+  employee     Employee @relation(fields: [employeeId], references: [id])
+
+  date         DateTime
+
+  clockInTime  String
+  clockOutTime String?
+
+  notes        String?
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([employeeId, date])
 }

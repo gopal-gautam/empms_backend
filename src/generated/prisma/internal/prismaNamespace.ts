@@ -384,7 +384,8 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
-  Employee: 'Employee'
+  Employee: 'Employee',
+  ClockInOut: 'ClockInOut'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -400,7 +401,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "employee"
+    modelProps: "employee" | "clockInOut"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -475,6 +476,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.EmployeeCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.EmployeeCountAggregateOutputType> | number
+        }
+      }
+    }
+    ClockInOut: {
+      payload: Prisma.$ClockInOutPayload<ExtArgs>
+      fields: Prisma.ClockInOutFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ClockInOutFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClockInOutPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ClockInOutFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClockInOutPayload>
+        }
+        findFirst: {
+          args: Prisma.ClockInOutFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClockInOutPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ClockInOutFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClockInOutPayload>
+        }
+        findMany: {
+          args: Prisma.ClockInOutFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClockInOutPayload>[]
+        }
+        create: {
+          args: Prisma.ClockInOutCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClockInOutPayload>
+        }
+        createMany: {
+          args: Prisma.ClockInOutCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ClockInOutCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClockInOutPayload>[]
+        }
+        delete: {
+          args: Prisma.ClockInOutDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClockInOutPayload>
+        }
+        update: {
+          args: Prisma.ClockInOutUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClockInOutPayload>
+        }
+        deleteMany: {
+          args: Prisma.ClockInOutDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ClockInOutUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ClockInOutUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClockInOutPayload>[]
+        }
+        upsert: {
+          args: Prisma.ClockInOutUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClockInOutPayload>
+        }
+        aggregate: {
+          args: Prisma.ClockInOutAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateClockInOut>
+        }
+        groupBy: {
+          args: Prisma.ClockInOutGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClockInOutGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ClockInOutCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ClockInOutCountAggregateOutputType> | number
         }
       }
     }
@@ -561,6 +636,20 @@ export const EmployeeScalarFieldEnum = {
 } as const
 
 export type EmployeeScalarFieldEnum = (typeof EmployeeScalarFieldEnum)[keyof typeof EmployeeScalarFieldEnum]
+
+
+export const ClockInOutScalarFieldEnum = {
+  id: 'id',
+  employeeId: 'employeeId',
+  date: 'date',
+  clockInTime: 'clockInTime',
+  clockOutTime: 'clockOutTime',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ClockInOutScalarFieldEnum = (typeof ClockInOutScalarFieldEnum)[keyof typeof ClockInOutScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -730,6 +819,7 @@ export type PrismaClientOptions = ({
 }
 export type GlobalOmitConfig = {
   employee?: Prisma.EmployeeOmit
+  clockInOut?: Prisma.ClockInOutOmit
 }
 
 /* Types for Logging */
