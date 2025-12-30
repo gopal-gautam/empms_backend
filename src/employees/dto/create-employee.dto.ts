@@ -12,7 +12,7 @@ export class CreateEmployeeDto {
   @IsString() @IsOptional() middleName?: string;
   @IsString() @IsNotEmpty() lastName: string;
 
-  @IsDateString() @Type(() => Date) dateOfBirth: string;
+  @IsDateString() dateOfBirth: string;
   @IsString() @IsNotEmpty() gender: string;
   @IsString() @IsNotEmpty() maritalStatus: string;
   @IsString() @IsNotEmpty() nationality: string;
@@ -32,7 +32,7 @@ export class CreateEmployeeDto {
   @IsString() @IsNotEmpty() jobTitle: string;
   @IsString() @IsNotEmpty() employmentType: string;
 
-  @IsDateString() @Type(() => Date) dateOfJoining: string;
+  @IsDateString() dateOfJoining: string;
   @IsString() @IsNotEmpty() workLocation: string;
   @IsString() @IsOptional() reportingManager?: string;
 

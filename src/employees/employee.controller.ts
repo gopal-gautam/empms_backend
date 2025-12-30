@@ -13,8 +13,11 @@ export class EmployeeController {
 
   @Post()
   async create(@Body() createEmployeeDto: CreateEmployeeDto) {
-    // You may want to define a CreateEmployeeDto for better typing
-    return await this.employeeService.createEmployee(createEmployeeDto);
+    try {
+      return await this.employeeService.createEmployee(createEmployeeDto);
+    } catch (error) {
+      throw error;
+    }
   }
 
   @Get()
