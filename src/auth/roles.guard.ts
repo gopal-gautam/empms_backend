@@ -23,7 +23,10 @@ export class RolesGuard implements CanActivate {
       throw new ForbiddenException('User not authenticated');
     }
 
-    const hasRole = requiredRoles.some((role) => user.roles?.includes(role));
+    // Treat missing or empty roles as defaulting to 'employee'
+    const userRoles = (user.roles && user.roles.length > 0) ? user.roles : ['employee'];
+
+    const hasRole = requiredRoles.some((role) => userRoles.includes(role));
 
     if (!hasRole) {
       throw new ForbiddenException('You do not have permission to access this resource');
